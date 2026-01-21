@@ -19,6 +19,16 @@
 - [ ] **`config.properties`**
 - [ ] **`log4j2.xml`**
 - [ ] **`totp_secrets.key`** (template vide)
+# ↑ Fichier de stockage TOTP sécurisé (base ou fichier chiffré)
+
+### **Base de données** → SEULEMENT users et messages en SQL
+- [ ] **`UserDAO.java`** (CRUD users)
+- [ ] **`MessageDAO.java`** (CRUD messages)
+- [ ] (Optionnel) **`ContactDAO.java`** (si table contacts en SQL)
+- [ ] (Optionnel) **`DeviceTokenDAO.java`** (si push en SQL)
+
+### **Images/files** → Stockage fichier dans `/serveur/images/`
+- [ ] API upload/download (si besoin)
 
 ### **4. BASE DE DONNÉES** (`serveur/src/main/java/com/securephone/server/database/`)
 - [ ] **`DatabaseManager.java`**

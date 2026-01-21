@@ -1,62 +1,38 @@
--- ============================================
--- donnees_simple.sql
--- Données de test POUR ÉTUDIANT
--- Mots de passe : tous = "etu123"
--- ============================================
+-- Données de test pour SecurePhone
+-- Mots de passe : "password123" (bcrypt hash)
 
-USE securephone;
+-- Utilisateurs de test
+INSERT INTO users (username, password_hash, email, totp_secret, status) VALUES
+('alice', '$2a$10$N9qo8uLOickgx2ZMRZoMye7Z7p6c5Q8Qq9q5J8q5N8q5', 'alice@securephone.com', 'JBSWY3DPEHPK3PXP', 'online'),
+('bob', '$2a$10$N9qo8uLOickgx2ZMRZoMye7Z7p6c5Q8Qq9q5J8q5N8q5', 'bob@securephone.com', 'JBSWY3DPEHPK3PXP', 'online'),
+('charlie', '$2a$10$N9qo8uLOickgx2ZMRZoMye7Z7p6c5Q8Qq9q5J8q5N8q5', 'charlie@securephone.com', 'JBSWY3DPEHPK3PXP', 'offline'),
+('diana', '$2a$10$N9qo8uLOickgx2ZMRZoMye7Z7p6c5Q8Qq9q5J8q5N8q5', 'diana@securephone.com', 'JBSWY3DPEHPK3PXP', 'away');
 
--- 1. Insérer des utilisateurs de test
-INSERT INTO utilisateurs (username, password_hash, email) VALUES
--- admin / admin123
-('admin', '$2a$12$1234567890123456789012345678901234567890123456789012', 'admin@ecole.fr'),
--- etu1 / etu123
-('etu1', '$2a$12$1234567890123456789012345678901234567890123456789012', 'etu1@ecole.fr'),
--- etu2 / etu123  
-('etu2', '$2a$12$1234567890123456789012345678901234567890123456789012', 'etu2@ecole.fr'),
--- etu3 / etu123
-('etu3', '$2a$12$1234567890123456789012345678901234567890123456789012', 'etu3@ecole.fr');
+-- Contacts de test
+INSERT INTO contacts (user_id, contact_id, nickname) VALUES
+(1, 2, 'Bob le bricoleur'),
+(1, 3, 'Charlie'),
+(2, 1, 'Alice'),
+(2, 4, 'Diana'),
+(3, 1, 'Alice');
 
--- 2. Créer des contacts (liste d'amis)
-INSERT INTO contacts (utilisateur_id, contact_id, statut) VALUES
-(1, 2, 'ami'),  -- admin est ami avec etu1
-(1, 3, 'ami'),  -- admin est ami avec etu2
-(2, 3, 'ami'),  -- etu1 est ami avec etu2
-(2, 4, 'ami');  -- etu1 est ami avec etu3
+-- Messages de test
+INSERT INTO messages (sender_id, receiver_id, message_type, content, timestamp) VALUES
+(1, 2, 'text', 'Salut Bob, ça va ?', '2024-01-15 10:30:00'),
+(2, 1, 'text', 'Oui Alice, et toi ?', '2024-01-15 10:31:00'),
+(1, 2, 'text', 'Super, prêt pour la réunion audio ?', '2024-01-15 10:32:00'),
+(2, 1, 'text', 'Oui, je te rejoins dans la salle générale', '2024-01-15 10:33:00'),
+(1, 3, 'text', 'Charlie, tu es là ?', '2024-01-15 11:00:00'),
+(4, 1, 'text', 'Alice, peux-tu m''appeler ?', '2024-01-15 14:20:00');
 
--- 3. Créer un groupe de discussion
-INSERT INTO groupes (nom, createur_id) VALUES
-('TP Progsys S3', 1),
-('Gaming', 2);
+-- Messages de groupe (room_id = 'general')
+INSERT INTO messages (sender_id, receiver_id, room_id, message_type, content, timestamp) VALUES
+(1, 2, 'general', 'text', 'Bienvenue dans la salle générale !', '2024-01-15 09:00:00'),
+(2, 1, 'general', 'text', 'Merci Alice', '2024-01-15 09:01:00'),
+(3, 1, 'general', 'text', 'Je suis là aussi', '2024-01-15 09:02:00');
 
--- 4. Ajouter des membres aux groupes
-INSERT INTO groupe_membres (groupe_id, utilisateur_id) VALUES
--- Groupe "TP Progsys S3"
-(1, 1),  -- admin
-(1, 2),  -- etu1
-(1, 3),  -- etu2
--- Groupe "Gaming"
-(2, 2),  -- etu1
-(2, 3),  -- etu2
-(2, 4);  -- etu3
-
--- 5. Insérer des messages de démonstration
-INSERT INTO messages (expediteur_id, destinataire_id, groupe_id, contenu, est_lu) VALUES
--- Messages privés
-(2, 3, NULL, 'Salut etu2, ça va ?', TRUE),            -- etu1 à etu2 (privé)
-(3, 2, NULL, 'Oui et toi ? On fait le TP ensemble ?', FALSE), -- etu2 à etu1
-
--- Messages de groupe
-(1, NULL, 1, 'Bienvenue dans le TP Progsys !', TRUE),  -- admin dans groupe TP
-(2, NULL, 1, 'Qui veut coder la partie audio ?', TRUE), -- etu1 dans groupe TP
-(3, NULL, 1, 'Moi je prends le chat texte', TRUE),     -- etu2 dans groupe TP
-
--- Plus de messages pour avoir un historique
-(2, NULL, 2, 'Qui joue ce soir ?', TRUE),              -- etu1 dans groupe Gaming
-(3, NULL, 2, 'Moi à 20h !', TRUE),                     -- etu2 dans groupe Gaming
-(4, NULL, 2, '+1', FALSE);                             -- etu3 dans groupe Gaming (non lu)
-
--- 6. OPTIONNEL : Sessions audio actives
-INSERT INTO sessions_audio (groupe_id, utilisateur_id, ip_client, port_client, en_train_de_parler) VALUES
-(2, 2, '192.168.1.10', 6000, TRUE),   -- etu1 parle dans Gaming
-(2, 3, '192.168.1.11', 6001, FALSE);  -- etu2 écoute dans Gaming
+-- Tokens push de test (exemple)
+INSERT INTO device_tokens (user_id, device_token, platform) VALUES
+(1, 'token_alice_android_123', 'android'),
+(2, 'token_bob_ios_456', 'ios'),
+(1, 'token_alice_web_789', 'web');
