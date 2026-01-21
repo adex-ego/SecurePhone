@@ -7,6 +7,10 @@ Projet S3 - Systèmes et Réseaux
 - Hailey (Sécurité/Backend)  
 - Hatsu (UI/Client/Notifications)
 
+## tech : java 
+
+## base : mysql
+
 ## Structure
 - `/client` : Application cliente Java
 - `/serveur` : Serveur Java (Maven)
