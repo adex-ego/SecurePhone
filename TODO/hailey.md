@@ -3,38 +3,38 @@
 ## 🟢 **PEUT FAIRE IMMÉDIATEMENT** (Sans dépendance)
 
 ### **1. MODÈLES DE DONNÉES** (`serveur/src/main/java/com/securephone/server/models/`)
-- [ ] **`User.java`**
-- [ ] **`Message.java`**
-- [ ] **`Contact.java`**
-- [ ] **`Room.java`**
-- [ ] **`AudioStream.java`**
+- [OK] **`User.java`**
+- [OK] **`Message.java`**
+- [OK] **`Contact.java`**
+- [OK] **`Room.java`**
+- [OK] **`AudioStream.java`**
 
 ### **2. SÉCURITÉ - UTILITAIRES** (`serveur/src/main/java/com/securephone/server/security/`)
-- [ ] **`PasswordHasher.java`**
-- [ ] **`SimpleA2F.java`**
-- [ ] **`CryptoUtils.java`**
-- [ ] **`SessionManager.java`**
+- [OK] **`PasswordHasher.java`**
+- [OK] **`SimpleA2F.java`**
+- [OK] **`CryptoUtils.java`**
+- [OK] **`SessionManager.java`**
 
 ### **3. CONFIGURATION** (`serveur/src/main/java/com/securephone/resources/`)
-- [ ] **`config.properties`**
-- [ ] **`log4j2.xml`**
-- [ ] **`totp_secrets.key`** (template vide)
+- [OK] **`config.properties`**
+- [OK] **`log4j2.xml`**
+- [OK] **`totp_secrets.key`** (template vide)
 # ↑ Fichier de stockage TOTP sécurisé (base ou fichier chiffré)
 
 ### **Base de données** → SEULEMENT users et messages en SQL
-- [ ] **`UserDAO.java`** (CRUD users)
-- [ ] **`MessageDAO.java`** (CRUD messages)
-- [ ] **`ContactDAO.java`**
-- [ ] **`DeviceTokenDAO.java`** 
+- [OK] **`UserDAO.java`** (CRUD users)
+- [OK] **`MessageDAO.java`** (CRUD messages)
+- [OK] **`ContactDAO.java`**
+- [OK] **`DeviceTokenDAO.java`** 
 
 ### **Images/files** → Stockage fichier dans `/serveur/images/`
-- [ ] API upload/download (si besoin)
+- [OK] API upload/download (si besoin)
 
 ### **4. BASE DE DONNÉES** (`serveur/src/main/java/com/securephone/server/database/`)
-- [ ] **`DatabaseManager.java`**
-- [ ] **`UserDAO.java`**
-- [ ] **`MessageDAO.java`**
-- [ ] **`ContactDAO.java`**
+- [OK] **`DatabaseManager.java`**
+- [OK] **`UserDAO.java`**
+- [OK] **`MessageDAO.java`**
+- [OK] **`ContactDAO.java`**
 
 ---
 
