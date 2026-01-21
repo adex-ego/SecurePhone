@@ -11,7 +11,7 @@
 
 ### **2. SÉCURITÉ - UTILITAIRES** (`serveur/src/main/java/com/securephone/server/security/`)
 - [ ] **`PasswordHasher.java`**
-- [ ] **`TOTPGenerator.java`**
+- [ ] **`SimpleA2F.java`**
 - [ ] **`CryptoUtils.java`**
 - [ ] **`SessionManager.java`**
 
@@ -24,8 +24,8 @@
 ### **Base de données** → SEULEMENT users et messages en SQL
 - [ ] **`UserDAO.java`** (CRUD users)
 - [ ] **`MessageDAO.java`** (CRUD messages)
-- [ ] (Optionnel) **`ContactDAO.java`** (si table contacts en SQL)
-- [ ] (Optionnel) **`DeviceTokenDAO.java`** (si push en SQL)
+- [ ] **`ContactDAO.java`**
+- [ ] **`DeviceTokenDAO.java`** 
 
 ### **Images/files** → Stockage fichier dans `/serveur/images/`
 - [ ] API upload/download (si besoin)
