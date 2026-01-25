@@ -2,8 +2,8 @@
 
 1) Configuration de base (une seule fois)
 git config --global user.name "username"        # Définit ton nom pour les commits  
-git config --global user.email "mail" # Définit ton email pour les commits  
-git config --list                            # Affiche la config Git actuelle  
+git config --global user.email "mail"           # Définit ton email pour les commits  
+git config --list                               # Affiche la config Git actuelle  
 
 2) Initialiser un dépôt local
 git init                                     # Crée un dépôt Git dans le dossier courant  
