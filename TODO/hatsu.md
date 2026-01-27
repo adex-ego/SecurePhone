@@ -7,7 +7,7 @@
 - [OK] **`sounds/`** *Hatsu seule* (sons interface)
 
 ### **2. UTILITAIRES UI** (`client/src/main/java/com/securephone/client/utils/`)mc
-39bd268ltw1- [WIP] **`SoundPlayer.java`** *Hatsu seule*
+- [WIP] **`SoundPlayer.java`** *Hatsu seule*
 - [OK] **`NotificationManager.java`** *Hatsu seule*
 
 ### **3. GESTION UI** (`client/src/main/java/com/securephone/client/ui/`)
