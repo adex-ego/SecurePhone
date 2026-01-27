@@ -5,33 +5,34 @@ import java.util.Map;
 import java.util.UUID;
 
 public class SessionManager {
-    
+
     private static final Map<String, Session> sessions = new HashMap<>();
-    
-    static class Session {
-        int userId;
-        String username;
-        long createdAt;
-        long lastActivity;
-        
+
+    public static class Session {
+
+        public int userId;
+        public String username;
+        public long createdAt;
+        public long lastActivity;
+
         Session(int userId, String username) {
             this.userId = userId;
             this.username = username;
             this.createdAt = System.currentTimeMillis();
             this.lastActivity = System.currentTimeMillis();
         }
-        
-        boolean isExpired() {
+
+        public boolean isExpired() {
             return System.currentTimeMillis() - lastActivity > 3600000; // 1 heure
         }
     }
-    
+
     public static String createSession(int userId, String username) {
         String sessionId = UUID.randomUUID().toString();
         sessions.put(sessionId, new Session(userId, username));
         return sessionId;
     }
-    
+
     public static Session getSession(String sessionId) {
         Session session = sessions.get(sessionId);
         if (session != null && !session.isExpired()) {
@@ -40,7 +41,7 @@ public class SessionManager {
         }
         return null;
     }
-    
+
     public static void invalidateSession(String sessionId) {
         sessions.remove(sessionId);
     }

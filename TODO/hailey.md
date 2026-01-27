@@ -41,10 +41,10 @@
 ## 🟡 **DOIT ATTENDRE LES AUTRES** (Dépendances)
 
 ### **1. API SERVEUR** (`serveur/src/main/java/com/securephone/server/api/`)
-- [ ] **`AuthServlet.java`** (Attend UI login de Hatsu)
-- [ ] **`MessageServlet.java`** (Attend protocole de Tflow + UI de Hatsu)
-- [ ] **`ContactServlet.java`** (Attend UI contacts de Hatsu)
-- [ ] **`RoomServlet.java`** (Attend audio de Tflow + UI de Hatsu)
+- [WIP] **`AuthServlet.java`** (Attend UI login de Hatsu)
+- [WIP] **`MessageServlet.java`** (Attend protocole de Tflow + UI de Hatsu)
+- [WIP] **`ContactServlet.java`** (Attend UI contacts de Hatsu)
+- [WIP] **`RoomServlet.java`** (Attend audio de Tflow + UI de Hatsu)
 
 ### **2. GESTION RÉSEAU** (`serveur/src/main/java/com/securephone/server/network/`)
 - [ ] **`SocketManager.java`** (Coordination avec Tflow)

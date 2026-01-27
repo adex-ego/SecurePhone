@@ -3,19 +3,19 @@
 ## 🟢 **PEUT FAIRE IMMÉDIATEMENT** (Sans dépendance)
 
 ### **1. CLIENT AUDIO** (`client/src/main/java/com/securephone/client/audio/`)
-- [ok ] **`AudioCapture.java`** *Tflow seule*
-- [ok ] **`AudioPlayer.java`** *Tflow seule*
-- [ ok] **`AudioBuffer.java`** *Tflow seule*
-- [ok ] **`OpusCodec.java`** *Tflow seule*
+- [ok] **`AudioCapture.java`** *Tflow seule*
+- [ok] **`AudioPlayer.java`** *Tflow seule*
+- [ok] **`AudioBuffer.java`** *Tflow seule*
+- [ok] **`OpusCodec.java`** *Tflow seule*
 
 ### **2. CLIENT VIDÉO** (`client/src/main/java/com/securephone/client/video/`)
-- [ok ] **`VideoCapture.java`** *Tflow seule*
-- [ ok] **`VideoPlayer.java`** *Tflow seule*
-- [ ok] **`H264Codec.java`** *Tflow seule*
+- [ok] **`VideoCapture.java`** *Tflow seule*
+- [ok] **`VideoPlayer.java`** *Tflow seule*
+- [ok] **`H264Codec.java`** *Tflow seule*
 
 ### **3. MODÈLES CLIENT** (`client/src/main/java/com/securephone/client/models/`)
-- [ ok] **`AudioDevice.java`** *Tflow seule*
-- [ok ] **`UserSession.java`** *Tflow seule*
+- [ok] **`AudioDevice.java`** *Tflow seule*
+- [ok] **`UserSession.java`** *Tflow seule*
 
 ---
 
