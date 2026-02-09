@@ -4,6 +4,8 @@ public enum MessageType {
     // Authentication
     LOGIN_REQUEST,
     LOGIN_RESPONSE,
+    REGISTER_REQUEST,
+    REGISTER_RESPONSE,
     LOGOUT,
     AUTH_ERROR,
     

@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 
 public class AudioPacket {
     public static final int MAX_AUDIO_SIZE = 4096;
+    private static final int HEADER_SIZE = 20;
     
     private int userId;
     private int sequenceNumber;
@@ -41,7 +42,7 @@ public class AudioPacket {
      * Serialize to byte array
      */
     public byte[] toBytes() {
-        ByteBuffer buffer = ByteBuffer.allocate(16 + dataLength); // header + audio
+        ByteBuffer buffer = ByteBuffer.allocate(HEADER_SIZE + dataLength);
         buffer.putInt(userId);
         buffer.putInt(sequenceNumber);
         buffer.putLong(timestamp);
@@ -54,6 +55,9 @@ public class AudioPacket {
      * Deserialize from byte array
      */
     public static AudioPacket fromBytes(byte[] data) {
+        if (data == null || data.length < HEADER_SIZE) {
+            throw new IllegalArgumentException("Audio packet too small");
+        }
         ByteBuffer buffer = ByteBuffer.wrap(data);
         AudioPacket packet = new AudioPacket();
         packet.userId = buffer.getInt();
@@ -63,6 +67,10 @@ public class AudioPacket {
         
         if (packet.dataLength > MAX_AUDIO_SIZE) {
             throw new IllegalArgumentException("Audio data too large: " + packet.dataLength);
+        }
+
+        if (data.length < HEADER_SIZE + packet.dataLength) {
+            throw new IllegalArgumentException("Audio packet data incomplete");
         }
         
         packet.audioData = new byte[packet.dataLength];
@@ -74,7 +82,7 @@ public class AudioPacket {
      * Get packet size in bytes
      */
     public int getSize() {
-        return 16 + dataLength; // header (16) + audio data
+        return HEADER_SIZE + dataLength;
     }
     
     @Override

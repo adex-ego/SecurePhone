@@ -8,11 +8,11 @@ public class SessionManager {
     
     private static final Map<String, Session> sessions = new HashMap<>();
     
-    static class Session {
-        int userId;
-        String username;
-        long createdAt;
-        long lastActivity;
+    public static class Session {
+        public final int userId;
+        public final String username;
+        public final long createdAt;
+        public long lastActivity;
         
         Session(int userId, String username) {
             this.userId = userId;

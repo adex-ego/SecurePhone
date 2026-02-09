@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 
 public class VideoPacket {
     public static final int MAX_VIDEO_SIZE = 65536; // 64KB
+    private static final int HEADER_SIZE = 32;
     
     private int userId;
     private int frameNumber;
@@ -57,7 +58,7 @@ public class VideoPacket {
      * Serialize to byte array
      */
     public byte[] toBytes() {
-        ByteBuffer buffer = ByteBuffer.allocate(28 + dataLength); // header + video
+        ByteBuffer buffer = ByteBuffer.allocate(HEADER_SIZE + dataLength);
         buffer.putInt(userId);
         buffer.putInt(frameNumber);
         buffer.putInt(frameType);
@@ -73,6 +74,9 @@ public class VideoPacket {
      * Deserialize from byte array
      */
     public static VideoPacket fromBytes(byte[] data) {
+        if (data == null || data.length < HEADER_SIZE) {
+            throw new IllegalArgumentException("Video packet too small");
+        }
         ByteBuffer buffer = ByteBuffer.wrap(data);
         VideoPacket packet = new VideoPacket();
         packet.userId = buffer.getInt();
@@ -86,6 +90,10 @@ public class VideoPacket {
         if (packet.dataLength > MAX_VIDEO_SIZE) {
             throw new IllegalArgumentException("Video data too large: " + packet.dataLength);
         }
+
+        if (data.length < HEADER_SIZE + packet.dataLength) {
+            throw new IllegalArgumentException("Video packet data incomplete");
+        }
         
         packet.videoData = new byte[packet.dataLength];
         buffer.get(packet.videoData, 0, packet.dataLength);
@@ -96,7 +104,7 @@ public class VideoPacket {
      * Get packet size in bytes
      */
     public int getSize() {
-        return 28 + dataLength; // header (28) + video data
+        return HEADER_SIZE + dataLength;
     }
     
     /**
