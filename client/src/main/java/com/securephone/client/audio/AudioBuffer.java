@@ -1,37 +1,45 @@
 package com.securephone.client.audio;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
+/**
+ * Thread-safe buffer for audio frames.
+ */
 public class AudioBuffer {
 
-	private final Queue<byte[]> queue;
-	private final int maxSize;
+	private final BlockingQueue<byte[]> queue;
 
-	public AudioBuffer(int maxSize) {
-		this.maxSize = Math.max(1, maxSize);
-		this.queue = new ArrayDeque<>(this.maxSize);
+	public AudioBuffer(int capacity) {
+		this.queue = new LinkedBlockingQueue<>(capacity);
 	}
 
-	public synchronized void add(byte[] data) {
-		if (data == null) {
-			return;
-		}
-		if (queue.size() >= maxSize) {
-			queue.poll();
-		}
-		queue.offer(data);
+	public boolean push(byte[] frame) {
+		return queue.offer(frame);
 	}
 
-	public synchronized byte[] poll() {
+	public boolean push(byte[] frame, long timeoutMs) throws InterruptedException {
+		return queue.offer(frame, timeoutMs, TimeUnit.MILLISECONDS);
+	}
+
+	public byte[] poll() {
 		return queue.poll();
 	}
 
-	public synchronized int size() {
+	public byte[] poll(long timeoutMs) throws InterruptedException {
+		return queue.poll(timeoutMs, TimeUnit.MILLISECONDS);
+	}
+
+	public void clear() {
+		queue.clear();
+	}
+
+	public int size() {
 		return queue.size();
 	}
 
-	public synchronized void clear() {
-		queue.clear();
+	public void add(byte[] data) {
+		push(data);
 	}
 }

@@ -7,35 +7,35 @@ import java.awt.image.BufferedImage;
 
 public class VideoPlayer extends JPanel {
 
-	private BufferedImage currentFrame;
+    private BufferedImage currentFrame;
 
-	public VideoPlayer() {
-		setBackground(Color.BLACK);
-	}
+    public VideoPlayer() {
+        setBackground(Color.BLACK);
+    }
 
-	public void setFrame(BufferedImage frame) {
-		this.currentFrame = frame;
-		repaint();
-	}
+    public void setFrame(BufferedImage frame) {
+        this.currentFrame = frame;
+        repaint();
+    }
 
-	@Override
-	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		if (currentFrame == null) {
-			return;
-		}
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (currentFrame == null) {
+            return;
+        }
 
-		int panelWidth = getWidth();
-		int panelHeight = getHeight();
-		int imgWidth = currentFrame.getWidth();
-		int imgHeight = currentFrame.getHeight();
+        int panelWidth = getWidth();
+        int panelHeight = getHeight();
+        int imgWidth = currentFrame.getWidth();
+        int imgHeight = currentFrame.getHeight();
 
-		double scale = Math.min((double) panelWidth / imgWidth, (double) panelHeight / imgHeight);
-		int drawWidth = (int) (imgWidth * scale);
-		int drawHeight = (int) (imgHeight * scale);
-		int x = (panelWidth - drawWidth) / 2;
-		int y = (panelHeight - drawHeight) / 2;
+        double scale = Math.min((double) panelWidth / imgWidth, (double) panelHeight / imgHeight);
+        int drawWidth = (int) (imgWidth * scale);
+        int drawHeight = (int) (imgHeight * scale);
+        int x = (panelWidth - drawWidth) / 2;
+        int y = (panelHeight - drawHeight) / 2;
 
-		g.drawImage(currentFrame, x, y, drawWidth, drawHeight, null);
-	}
+        g.drawImage(currentFrame, x, y, drawWidth, drawHeight, null);
+    }
 }

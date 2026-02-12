@@ -8,6 +8,7 @@
 /home/hatsugoki/Prog-sys/projet/SecurePhone/client/src/main/java/com/securephone/client/models/Contact.java
 /home/hatsugoki/Prog-sys/projet/SecurePhone/client/src/main/java/com/securephone/client/audio/AudioBuffer.java
 /home/hatsugoki/Prog-sys/projet/SecurePhone/client/src/main/java/com/securephone/client/video/VideoCapture.java
+/home/hatsugoki/Prog-sys/projet/SecurePhone/client/src/main/java/com/securephone/client/video/VideoBuffer.java
 /home/hatsugoki/Prog-sys/projet/SecurePhone/client/src/main/java/com/securephone/client/ui/components/ContactList.java
 /home/hatsugoki/Prog-sys/projet/SecurePhone/client/src/main/java/com/securephone/client/models/ChatMessage.java
 /home/hatsugoki/Prog-sys/projet/SecurePhone/client/src/main/java/com/securephone/client/ui/frames/MainFrame.java

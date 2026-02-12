@@ -1,7 +1,6 @@
 package com.securephone.client.models;
 
 public class UserSession {
-
 	private String sessionId;
 	private int userId;
 	private String username;

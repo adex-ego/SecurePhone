@@ -37,7 +37,7 @@ public class MainServer {
             System.out.println("[MAIN] Serveur Vidéo UDP démarré sur le port 50020");
             
             System.out.println("\n✅ Serveur SecurePhone prêt !");
-            System.out.println("API REST: http://localhost:8080/securephone/api/");
+            System.out.println("API REST: http://localhost:8000/securephone/api/");
             System.out.println("Chat TCP: localhost:8081");
             System.out.println("\nAppuyez sur Ctrl+C pour arrêter...");
             

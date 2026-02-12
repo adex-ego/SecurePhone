@@ -22,9 +22,26 @@ public class AudioCapture {
 	private TargetDataLine line;
 	private Thread captureThread;
 	private volatile boolean running;
+	private final AudioBuffer buffer;
+
+	public AudioCapture() {
+		this.buffer = null;
+	}
+
+	public AudioCapture(AudioBuffer buffer) {
+		this.buffer = buffer;
+	}
 
 	public AudioFormat getFormat() {
 		return new AudioFormat(SAMPLE_RATE, SAMPLE_SIZE, CHANNELS, SIGNED, LITTLE_ENDIAN);
+	}
+
+	public void start() throws Exception {
+		start((data, length) -> {
+			if (buffer != null) {
+				buffer.push(data);
+			}
+		});
 	}
 
 	public void start(AudioFrameListener listener) throws Exception {

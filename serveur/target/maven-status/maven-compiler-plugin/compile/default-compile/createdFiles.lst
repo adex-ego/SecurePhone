@@ -1,3 +1,4 @@
+com/securephone/server/udp/RoomAudioManager.class
 com/securephone/shared/protocol/MessageType.class
 com/securephone/server/database/DatabaseManager.class
 com/securephone/shared/protocol/VideoPacket.class
@@ -14,6 +15,7 @@ com/securephone/server/security/SessionManager$Session.class
 com/securephone/server/models/Room.class
 com/securephone/server/network/SocketManager$ClientHandler.class
 com/securephone/server/websocket/PresenceWebSocket.class
+com/securephone/server/push/DeviceTokenDAO.class
 com/securephone/server/network/PacketRouter.class
 com/securephone/server/database/ContactDAO.class
 com/securephone/server/database/DeviceTokenDAO.class
@@ -31,6 +33,7 @@ com/securephone/server/models/AudioStream.class
 com/securephone/server/security/Simple2FA$TwoFACode.class
 com/securephone/server/MainServer.class
 com/securephone/server/udp/VideoPacketHandler.class
+com/securephone/server/udp/RoomVideoManager.class
 com/securephone/server/network/SocketManager.class
 com/securephone/server/security/SessionManager.class
 com/securephone/server/push/PushNotification.class
