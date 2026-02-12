@@ -18,8 +18,8 @@ public class ApiClient {
 
 	public ApiClient() {
 		Properties props = new Properties();
-		String host = "localhost";
-		String port = "8080";
+		String host = "192.168.43.37";
+		String port = "8000";
 		try (var fis = new java.io.FileInputStream("client/resources/config.properties")) {
 			props.load(fis);
 			host = props.getProperty("server.host", host);

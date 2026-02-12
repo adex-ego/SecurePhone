@@ -49,8 +49,6 @@
             <groupId>javazoom</groupId>
             <artifactId>jlayer</artifactId>
             <version>1.0.1</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/jlayer-1.0.1.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -101,6 +99,8 @@
                 <version>3.1.0</version>
                 <configuration>
                     <mainClass>com.securephone.client.SecurePhoneApp</mainClass>
+                    <includeProjectDependencies>true</includeProjectDependencies>
+                    <includePluginDependencies>true</includePluginDependencies>
                 </configuration>
             </plugin>
         </plugins>

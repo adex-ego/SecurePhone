@@ -334,7 +334,7 @@ public class ConnectionManager {
 
 	private void loadConfig() {
 		Properties props = new Properties();
-		try (FileInputStream fis = new FileInputStream("client/resources/config.properties")) {
+		try (FileInputStream fis = new FileInputStream("resources/config.properties")) {
 			props.load(fis);
 		} catch (Exception e) {
 			Logger.warn("Config manquante, valeurs par defaut utilisees");
