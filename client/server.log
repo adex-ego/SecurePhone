@@ -1,0 +1,56 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.securephone:securephone-client >-----------------
+[INFO] Building SecurePhone Client 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.1.0:java (default-cli) @ securephone-client ---
+? D?marrage de SecurePhone...
+???????????????????????????????????????
+
+? Initialisation des ressources...
+V?rification des fichiers sons...
+  ? MESSAGE_RECEIVED trouv?
+  ? MESSAGE_SENT trouv?
+  ? CALL_INCOMING trouv?
+  ? CALL_CONNECTED trouv?
+  ? CALL_ENDED trouv?
+  ? ERROR trouv?
+  ? BUTTON_CLICK trouv?
+  ? NOTIFICATION trouv?
+   ? SoundPlayer initialis?
+   ? Volume: 80%
+   ? NotificationManager initialis?
+? Th?me charg?: DARK
+   ? UIManager initialis? (th?me: DARK)
+
+? Configuration des listeners...
+   ? 5 contacts de d?monstration ajout?s
+   ? Tous les listeners configur?s
+2026-02-12 09:53:49 [WARN] Config manquante, valeurs par defaut utilisees
+? Application d?marr?e avec succ?s!
+???????????????????????????????????????
+
+? INFOS APPLICATI ON
+   App: SecurePhone v1.0.0
+   Status: UI Ready
+   Th?me: Dark (configurable)
+   Audio: Activ?
+   Notifications: Activ?es
+
+? CONSEILS DE TEST
+   1. Login: username='test', password='test'
+   2. Chat: ?crivez un message et envoyez
+   3. Contacts: Cliquez sur les contacts pour voir les d?tails
+   4. Settings: Changez le th?me et le volume
+   5. Menu: Utilisez le menu pour naviguer
+
+??  LIMITATIONS ACTUELLES
+   ? Camera reelle non integree (flux video simule)
+   ? Donnees non persistantes (memoire serveur)
+
+? POUR LANCER
+   mvn exec:java -Dexec.mainClass="com.securephone.client.SecurePhoneApp"
+???????????????????????????????????????
+
